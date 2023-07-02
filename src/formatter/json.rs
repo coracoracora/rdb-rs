@@ -21,13 +21,19 @@ impl JSON {
     pub fn new() -> JSON {
         let out = Box::new(io::stdout());
         JSON {
-            out: out,
+            out,
             is_first_db: true,
             has_databases: false,
             is_first_key_in_db: true,
             elements_in_key: 0,
             element_index: 0
         }
+    }
+}
+
+impl Default for JSON {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

@@ -12,7 +12,7 @@ pub fn int_to_vec(number: i32) -> Vec<u8> {
 
 pub fn read_exact<T: Read>(reader: &mut T, len: usize) -> IoResult<Vec<u8>> {
     let mut buf = vec![0; len];
-    try!(reader.read_exact(&mut buf));
+    reader.read_exact(&mut buf)?;
 
     Ok(buf)
 }

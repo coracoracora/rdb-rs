@@ -14,7 +14,13 @@ pub struct Protocol {
 impl Protocol {
     pub fn new() -> Protocol {
         let out = Box::new(io::stdout());
-        Protocol { out: out, last_expiry: None }
+        Protocol { out, last_expiry: None }
+    }
+}
+
+impl Default for Protocol {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

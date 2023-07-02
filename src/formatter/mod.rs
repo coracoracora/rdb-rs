@@ -14,7 +14,7 @@ pub mod protocol;
 
 
 pub fn write_str<W: Write>(out: &mut W, data: &str) {
-    out.write(data.as_bytes()).unwrap();
+    out.write_all(data.as_bytes()).unwrap();
 }
 
 #[allow(unused_variables)]

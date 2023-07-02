@@ -6,6 +6,7 @@ use serialize::hex::ToHex;
 use types::EncodingType;
 use super::write_str;
 
+
 pub struct Plain {
     out: Box<dyn Write+'static>,
     dbnum: u32,
@@ -15,11 +16,17 @@ pub struct Plain {
 impl Plain {
     pub fn new() -> Plain {
         let out = Box::new(io::stdout());
-        Plain { out: out, dbnum: 0, index: 0 }
+        Plain { out, dbnum: 0, index: 0 }
     }
 
     fn write_line_start(&mut self) {
         write_str(&mut self.out, &format!("db={} ", self.dbnum));
+    }
+}
+
+impl Default for Plain {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

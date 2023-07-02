@@ -80,7 +80,7 @@ pub fn main() {
     }
 
     let path = matches.free[0].clone();
-    let file = File::open(&Path::new(&*path)).unwrap();
+    let file = File::open(Path::new(&*path)).unwrap();
     let reader = BufReader::new(file);
 
     let mut res = Ok(());
@@ -112,11 +112,11 @@ pub fn main() {
     match res {
         Ok(()) => {},
         Err(e) => {
-            println!("");
+            println!();
             let mut stderr = std::io::stderr();
 
             let out = format!("Parsing failed: {}\n", e);
-            stderr.write(out.as_bytes()).unwrap();
+            stderr.write_all(out.as_bytes()).unwrap();
         }
     }
 }

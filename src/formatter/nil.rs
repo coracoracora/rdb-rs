@@ -1,5 +1,6 @@
 use formatter::Formatter;
 
+#[derive(Default)]
 pub struct Nil;
 
 impl Nil {
