@@ -7,7 +7,7 @@ use types::EncodingType;
 use super::write_str;
 
 pub struct Protocol {
-    out: Box<Write+'static>,
+    out: Box<dyn Write+'static>,
     last_expiry: Option<u64>
 }
 

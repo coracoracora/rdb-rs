@@ -7,7 +7,7 @@ use types::EncodingType;
 use super::write_str;
 
 pub struct Plain {
-    out: Box<Write+'static>,
+    out: Box<dyn Write+'static>,
     dbnum: u32,
     index: u32
 }

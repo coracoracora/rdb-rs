@@ -9,7 +9,7 @@ use types::EncodingType;
 use super::write_str;
 
 pub struct JSON {
-    out: Box<Write+'static>,
+    out: Box<dyn Write+'static>,
     is_first_db: bool,
     has_databases: bool,
     is_first_key_in_db: bool,
